@@ -1,22 +1,14 @@
-import styled from 'styled-components'
-import db from '../db.json'
-import Widget from '../src/components/Widget'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
-import QuizBackground from '../src/components/QuizBackground'
-import QuizLogo from '../src/components/QuizLogo'
+import React from 'react';
+import styled from 'styled-components';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.secondary};
-`
-
-// const BackgroundImage = styled.div`
-// background-image: url(${db.bg});
-// flex: 1;
-// background-size: cover;
-// background-position: center;
-// `
+import db from '../db.json';
+import Widget from '../src/components/Widget';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
+import QuizBackground from '../src/components/QuizBackground';
+import QuizLogo from '../src/components/QuizLogo';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -30,17 +22,42 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>Alura quiz - Xadrez</title>
+      </Head>
       <QuizContainer>
+        <QuizLogo />
         <Widget>
           <Widget.Header>
             <h1>Xadrez</h1>
           </Widget.Header>
 
           <Widget.Content>
+            <form onSubmit={function (e) {
+              e.preventDefault();
 
-            <p>Lorem ipsum...</p>
+              router.push(`/quiz?nome=${name}`);
+            }}
+            >
+              <input
+                onChange={function (event) {
+                  setName(event.target.value);
+                }}
+                name="name"
+                placeholder="Digita seu nome aí ;)"
+              />
+
+              <button type="submit" disabled={name.length === 0}>
+                Jogar
+                {' '}
+                {name}
+              </button>
+            </form>
           </Widget.Content>
         </Widget>
 
@@ -55,5 +72,5 @@ export default function Home() {
 
       <GitHubCorner projectUrl="https://github.com/josafaverissimo" />
     </QuizBackground>
-  )
+  );
 }
