@@ -9,6 +9,9 @@ import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
+import QuizzesCards from '../src/components/QuizzesCards';
+import QuizInput from '../src/components/QuizInput';
+import QuizButton from '../src/components/QuizButton';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -25,6 +28,10 @@ export default function Home() {
   const router = useRouter();
   const [name, setName] = React.useState('');
 
+  const handlerQuizInput = (event) => {
+    setName(event.target.value);
+  };
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
@@ -38,33 +45,39 @@ export default function Home() {
           </Widget.Header>
 
           <Widget.Content>
+            <p>
+              Teste os seus conhecimentos sobre Xadrez
+              e divirta-se criando o seu AluraQuiz!
+            </p>
+
             <form onSubmit={function (e) {
               e.preventDefault();
 
               router.push(`/quiz?nome=${name}`);
             }}
             >
-              <input
-                onChange={function (event) {
-                  setName(event.target.value);
-                }}
+              <QuizInput
+                onChange={handlerQuizInput}
                 name="name"
                 placeholder="Digita seu nome aí ;)"
               />
 
-              <button type="submit" disabled={name.length === 0}>
+              <QuizButton type="submit" disabled={name.length === 0}>
                 Jogar
-                {' '}
                 {name}
-              </button>
+              </QuizButton>
             </form>
           </Widget.Content>
         </Widget>
 
         <Widget>
-          <h1>Quizes da galera</h1>
+          <Widget.Content>
+            <h1>Quizes da galera</h1>
 
-          <p>aaoskdaod</p>
+            <p>Dá uma olhada nesses quizes incríveis que o pessoal da Imersão Alguma coisa fez:</p>
+
+            <QuizzesCards quizzes={db.quizzes} />
+          </Widget.Content>
         </Widget>
 
         <Footer />
