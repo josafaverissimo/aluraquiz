@@ -73,7 +73,7 @@ export default function Home() {
           <Widget.Content>
             <h1>Quizes da galera</h1>
 
-            <p>Dá uma olhada nesses quizes incríveis que o pessoal da Imersão Alguma coisa fez:</p>
+            <p>Dá uma olhada nesses quizes incríveis que o pessoal da Imersão React 2.0 fez:</p>
 
             <QuizzesCards quizzes={db.quizzes} />
           </Widget.Content>
