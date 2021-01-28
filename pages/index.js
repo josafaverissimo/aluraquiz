@@ -64,7 +64,6 @@ export default function Home() {
 
               <QuizButton type="submit" disabled={name.length === 0}>
                 Jogar
-                {name}
               </QuizButton>
             </form>
           </Widget.Content>
