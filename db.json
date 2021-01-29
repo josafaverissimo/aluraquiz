@@ -4,25 +4,133 @@
   "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
+      "image": "https://media.giphy.com/media/RBRCJhp3cnpC0/giphy.gif",
+      "title": "Como o peão se movimenta?",
       "description": "Essa é pra aquecer",
-      "answer": 2,
+      "answer": 5,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Para frente.",
+        "Para trás.",
+        "Para os lados.",
+        "Para frente e diagonal.",
+        "Em zigue-zague."
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
-      "answer": 0,
+      "image": "https://media.giphy.com/media/U5gEoVRt05ZgQ/giphy.gif",
+      "title": "Qual o objetivo do jogo de xadrez?",
+      "description": "Agora se alonga",
+      "answer": 5,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+         "Capturar todas as peças!",
+         "Afogar o rei adversário.",
+         "Sofrer xeque-mate.",
+         "Dar xeques infinitos.",
+         "Aplicar xeque-mate ao rei adversário."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/kBhgPVLVQzpXa/giphy.gif",
+      "title": "A modalidade que consiste em colocar um jogador contra dezenas de outros jogadores chama-se:",
+      "description": "Foi dada a largada!",
+      "answer": 5,
+      "alternatives": [
+         "Múltiplas.",
+         "Imortal.",
+         "Rei da colina",
+         "Sobrevivência.",
+         "Simultânea."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/wnCR4WF5WpEZy/giphy.gif",
+      "title": "Como é chamada a oferta de um peão em troca de alguma vantagem?",
+      "description": "Hmmmm...",
+      "answer": 5,
+      "alternatives": [
+         "Sacrifício.",
+         "Erro.",
+         "Coragem",
+         "Gambito.",
+         "Troca de peças."
+      ]
+    },
+    {
+      "image": "https://media1.tenor.com/images/1ef7fae1c647ce5239135a1c6b1f6073/tenor.gif",
+      "title": "Qual das vantagens a seguir se obtém ao trocar uma peça de maior valor por uma de menor valor?",
+      "description": "Vantagens e vantagens",
+      "answer": 5,
+      "alternatives": [
+         "Vantagem material.",
+         "Vantagem numérica.",
+         "Vantagem geométrica.",
+         "Vantagem espacial ou carlsen.",
+         "Vantagem de volume."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/l3q2XnJo1OVj2pgmQ/giphy.gif",
+      "title": "Dado os lances, determine o nome da defesa jogada pelas negras: 1. e4 c6; 2. d4 e5",
+      "description": "Prepare-se",
+      "answer": 5,
+      "alternatives": [
+         "Peão do rei.",
+         "Gambito da dama.",
+         "Defesa caro-kann.",
+         "Defesa holandesa, variante muro de pedra.",
+         "Defesa siciliana."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/OGuhcYWfmXgHK/giphy.gif",
+      "title": "Qual é o nome do movimento que permite mover duas peças numa só vez?",
+      "description": "Prepare-se",
+      "answer": 5,
+      "alternatives": [
+         "Duplo.",
+         "Garfo.",
+         "Movimento em L.",
+         "Roger.",
+         "Roque."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/WRQBXSCnEFJIuxktnw/giphy.gif",
+      "title": "Um dos clássicos da literatura enxadrística: Pense Como Um Grande Mestre, de Alexander Kotov, apresentou uma técnica de calcular os movimentos e criar combinações de maneira eficiente que ficou conhecida como:",
+      "description": "Prepare-se",
+      "answer": 5,
+      "alternatives": [
+         "Análise combinatória.",
+         "Arranjo lógico.",
+         "Combinação sobre vantagem.",
+         "Tentativa e erro.",
+         "Lances candidatos."
+      ]
+    },
+    {
+      "image": "https://media1.tenor.com/images/51facaaaa68ea92f9f79bb09752e7372/tenor.gif?itemid=20097608",
+      "title": "Respectivamente, quanto vale a bispo, dama, peão, cavalo e torre?",
+      "description": "Prepare-se",
+      "answer": 5,
+      "alternatives": [
+         "3, 9, 0, 3, 5.",
+         "3, 9, 1, 3, 5.",
+         "3, 7, 3, 5, 3.",
+         "3, 3, 5, 5, 9.",
+         "3, 10, 1, 3, 5."
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif",
+      "title": "No jogo de xadrez, algumas jogadas feitas por inteligências artificiais, dado ao seu poder de processamento, pode não ser tão claras para um jogador iniciante e intermediário, às vezes até para jogadores avançados, pois",
+      "description": "Prepare-se",
+      "answer": 5,
+      "alternatives": [
+         "Dada a sequência, o adversário fará um erro grave.",
+         "De imediato se ganha uma vantagem.",
+         "Dará alguns xeques.",
+         "Sempre, levará xeque-mate em poucos lances.",
+         "Há uma combinação que levará a alguma vantagem, mesmo que a longo prazo."
       ]
     }
   ],

@@ -35,8 +35,7 @@ export default function Home() {
 
           <Widget.Content>
             <p>
-              Teste os seus conhecimentos sobre Xadrez
-              e divirta-se criando o seu AluraQuiz!
+              Teste os seus conhecimentos sobre Xadrez e tente dar xeque-mate neste quiz.
             </p>
 
             <form onSubmit={function (e) {
@@ -49,10 +48,11 @@ export default function Home() {
                 onChange={handlerQuizInput}
                 name="name"
                 placeholder="Digita seu nome aí ;)"
+                autoComplete="off"
               />
 
               <QuizButton type="submit" disabled={name.length === 0}>
-                Jogar
+                Xeque!
               </QuizButton>
             </form>
           </Widget.Content>

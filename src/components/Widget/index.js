@@ -22,7 +22,7 @@ const Widget = styled.div`
 
 Widget.Header = styled.header`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 18px 32px;
   background-color: ${({ theme }) => theme.colors.primary};
@@ -43,6 +43,12 @@ Widget.Content = styled.div`
   ul {
     list-style: none;
     padding: 0;
+  }
+  button[disabled] {
+    opacity: .6;
+  }
+  button:not([disabled]) {
+    cursor: pointer;
   }
 `;
 

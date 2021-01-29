@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 const QuizInput = styled.input`
+  outline: none;
   height: 38px;
   width: 281px;
-  left: 1px;
-  top: 1px;
   border-radius: 3.5px;
   background-color: #1c1814;
   color: ${({ theme }) => theme.colors.contrastText};
