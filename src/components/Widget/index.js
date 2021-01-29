@@ -63,10 +63,23 @@ Widget.Topic = styled.a`
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: .3s;
   display: block;
+  border: ${(props) => (props.isChecked ? ({ theme }) => `0.15rem solid ${theme.colors.primary}` : '0.15rem solid #423428')};
+  ${({ isCorrect }) => isCorrect && `
+    background-color: #769656;
+    border: 0.15rem solid #769656;
+  `}
+  ${({ isWrong }) => isWrong && `
+    background-color: #f45758;
+    border: 0.15rem solid #f45758;
+  `}
   
   &:hover,
   &:focus {
     opacity: .5;
+  }
+
+  input[type="radio"] {
+    display: none;
   }
 `;
 

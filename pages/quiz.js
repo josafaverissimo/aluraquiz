@@ -26,6 +26,9 @@ function QuestionWidget({
   length, questionNumber, image, title, description, alternatives, onSubmit,
 }) {
   const questionId = `question__${questionNumber}`;
+  const [alternativeChecked, setAlternativeChecked] = React.useState('');
+  const [alternativeCorrect, setAlternativeCorrect] = React.useState('');
+  const [isWrong, setIsWrong] = React.useState(false);
 
   return (
     <Widget>
@@ -47,21 +50,36 @@ function QuestionWidget({
         <form onSubmit={(event) => {
           event.preventDefault();
 
+          const alternativeCorrectId = alternatives.map((alternative) => alternative.isCorrect).indexOf('t');
+
+          setAlternativeCorrect(`alternative__${alternativeCorrectId}`);
+          setIsWrong(true);
+
           onSubmit();
+
+          setTimeout(() => {
+            setAlternativeCorrect('');
+            setIsWrong(false);
+          }, 2 * 1000);
         }}
         >
           {alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
 
             return (
-              <Widget.Topic as="label">
+              <Widget.Topic as="label" key={alternativeId} isCorrect={alternativeCorrect === alternativeId} isWrong={isWrong && alternativeCorrect !== alternativeId} isChecked={alternativeChecked === alternativeId}>
                 <input
                   id={alternativeId}
                   name={questionId}
+                  onChange={() => {
+                    setAlternativeChecked(alternativeId);
+                    console.log(`> ${alternativeChecked}`);
+                  }}
+                  value={alternativeIndex}
                   type="radio"
                 />
 
-                {alternative}
+                {alternative.text}
               </Widget.Topic>
             );
           })}
@@ -95,8 +113,10 @@ export default function QuizPage() {
   function handleQuizSubmit() {
     const nextQuestion = currentQuestion + 1;
 
-    if (nextQuestion < questionsLength) setCurrentQuestion(currentQuestion + 1);
-    else setScreenState(screenStates.RESULT);
+    setTimeout(() => {
+      if (nextQuestion < questionsLength) setCurrentQuestion(currentQuestion + 1);
+      else setScreenState(screenStates.RESULT);
+    }, 2 * 1000);
   }
 
   return (
@@ -131,5 +151,5 @@ QuestionWidget.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  alternatives: PropTypes.arrayOf(PropTypes.string).isRequired,
+  alternatives: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
