@@ -9,6 +9,7 @@ import Widget from '../src/components/Widget';
 import QuizButton from '../src/components/QuizButton';
 
 import HorseSpinner from '../src/components/HorseSpinner';
+import GitHubCorner from '../src/components/GitHubCorner';
 
 function ResultWidget({ results }) {
   return (
@@ -229,6 +230,8 @@ export default function QuizPage() {
 
         {screenState === screenStates.RESULT && <ResultWidget results={results} />}
       </QuizContainer>
+
+      <GitHubCorner projectUrl="https://github.com/josafaverissimo" />
     </QuizBackground>
   );
 }
