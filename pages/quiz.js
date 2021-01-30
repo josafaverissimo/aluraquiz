@@ -8,6 +8,36 @@ import QuizLogo from '../src/components/QuizLogo';
 import Widget from '../src/components/Widget';
 import QuizButton from '../src/components/QuizButton';
 
+function ResultWidget({ results }) {
+  return (
+    <Widget>
+      <Widget.Header>
+        Carregando...
+      </Widget.Header>
+
+      <Widget.Content>
+        <p>
+          Você acertou
+          {' '}
+          {results.filter((x) => x).length}
+          {' '}
+          perguntas
+        </p>
+
+        <ul>
+          {results.map((result, index) => (
+            <li key={`result__${result}`}>
+              {
+                `#${(index + 1).toString().padStart(2, '0')} Resultado: ${result ? 'acertou' : 'errou'}`
+              }
+            </li>
+          ))}
+        </ul>
+      </Widget.Content>
+    </Widget>
+  );
+}
+
 function LoadingWidget() {
   return (
     <Widget>
@@ -23,12 +53,20 @@ function LoadingWidget() {
 }
 
 function QuestionWidget({
-  length, questionNumber, image, title, description, alternatives, onSubmit,
+  length, questionNumber, image, title, description, alternatives, onSubmit, answer, addResult,
 }) {
   const questionId = `question__${questionNumber}`;
-  const [alternativeChecked, setAlternativeChecked] = React.useState('');
+
+  const [selectedAlternativeIndex, setSelectedAlternativeIndex] = React.useState(undefined);
+  const isCorrect = selectedAlternativeIndex === answer;
+
+  const [isQuestionSubmited, setIsQuestionSubmited] = React.useState(false);
+  const [alternativeIdChecked, setAlternativeIdChecked] = React.useState('');
+
   const [alternativeCorrect, setAlternativeCorrect] = React.useState('');
-  const [isWrong, setIsWrong] = React.useState(false);
+  const [isWrongActive, setIsWrongActive] = React.useState(false);
+
+  const hasAlternativeSelected = selectedAlternativeIndex !== undefined;
 
   return (
     <Widget>
@@ -50,41 +88,67 @@ function QuestionWidget({
         <form onSubmit={(event) => {
           event.preventDefault();
 
-          const alternativeCorrectId = alternatives.map((alternative) => alternative.isCorrect).indexOf('t');
-
-          setAlternativeCorrect(`alternative__${alternativeCorrectId}`);
-          setIsWrong(true);
+          setAlternativeCorrect(`alternative__${answer}`);
+          setIsWrongActive(true);
 
           onSubmit();
 
+          setIsQuestionSubmited(true);
+
+          addResult(isCorrect);
+
           setTimeout(() => {
             setAlternativeCorrect('');
-            setIsWrong(false);
-          }, 2 * 1000);
+            setIsWrongActive(false);
+            setIsQuestionSubmited(false);
+            setSelectedAlternativeIndex(undefined);
+            setAlternativeIdChecked('');
+          }, 3 * 1000);
         }}
         >
           {alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
 
             return (
-              <Widget.Topic as="label" key={alternativeId} isCorrect={alternativeCorrect === alternativeId} isWrong={isWrong && alternativeCorrect !== alternativeId} isChecked={alternativeChecked === alternativeId}>
+              <Widget.Topic
+                as="label"
+                key={alternativeId}
+                isCorrect={alternativeCorrect === alternativeId}
+                isWrong={isWrongActive && alternativeCorrect !== alternativeId}
+                isChecked={alternativeIdChecked === alternativeId}
+              >
                 <input
                   id={alternativeId}
                   name={questionId}
                   onChange={() => {
-                    setAlternativeChecked(alternativeId);
-                    console.log(`> ${alternativeChecked}`);
+                    setAlternativeIdChecked(alternativeId);
+                    setSelectedAlternativeIndex(alternativeIndex);
                   }}
                   value={alternativeIndex}
+                  checked={false}
                   type="radio"
                 />
 
-                {alternative.text}
+                {alternative}
               </Widget.Topic>
             );
           })}
 
-          <QuizButton>Confimar</QuizButton>
+          <QuizButton disabled={!hasAlternativeSelected}>
+            Confimar
+          </QuizButton>
+          {isCorrect && isQuestionSubmited && (
+          <p>
+            Parabéns, Você acertou.
+          </p>
+          )}
+
+          {!isCorrect && isQuestionSubmited && (
+          <p>
+            Você errou.
+          </p>
+          )}
+
         </form>
 
       </Widget.Content>
@@ -99,10 +163,15 @@ const screenStates = {
 };
 
 export default function QuizPage() {
-  const [screenState, setScreenState] = React.useState(screenStates.LOADING);
+  const [screenState, setScreenState] = React.useState(screenStates.QUIZ);
+  const [results, setResults] = React.useState([]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const question = db.questions[currentQuestion];
   const questionsLength = db.questions.length;
+
+  function addResult(result) {
+    setResults([...results, result]);
+  }
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -116,7 +185,7 @@ export default function QuizPage() {
     setTimeout(() => {
       if (nextQuestion < questionsLength) setCurrentQuestion(currentQuestion + 1);
       else setScreenState(screenStates.RESULT);
-    }, 2 * 1000);
+    }, 3 * 1000);
   }
 
   return (
@@ -132,13 +201,15 @@ export default function QuizPage() {
           title={question.title}
           description={question.description}
           alternatives={question.alternatives}
+          answer={question.answer}
           onSubmit={handleQuizSubmit}
+          addResult={addResult}
         />
         )}
 
         {screenState === screenStates.LOADING && <LoadingWidget />}
 
-        {screenState === screenStates.RESULT && <div>Você acertou X questões, parabéns!</div>}
+        {screenState === screenStates.RESULT && <ResultWidget results={results} />}
       </QuizContainer>
     </QuizBackground>
   );
@@ -151,5 +222,11 @@ QuestionWidget.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  alternatives: PropTypes.arrayOf(PropTypes.object).isRequired,
+  alternatives: PropTypes.arrayOf(PropTypes.string).isRequired,
+  answer: PropTypes.number.isRequired,
+  addResult: PropTypes.func.isRequired,
+};
+
+ResultWidget.propTypes = {
+  results: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };

@@ -7,130 +7,130 @@
       "image": "https://media.giphy.com/media/RBRCJhp3cnpC0/giphy.gif",
       "title": "Como o peão se movimenta?",
       "description": "Essa é pra aquecer",
-      "answer": 5,
+      "answer": 0,
       "alternatives": [
-        {"text": "Para frente.", "isCorrect": "t"},
-        {"text": "Para trás.", "isCorrect": "f"},
-        {"text": "Para os lados.", "isCorrect": "f"},
-        {"text": "Para frente e diagonal.", "isCorrect": "f"},
-        {"text": "Em zigue-zague.", "isCorrect": "f"}
+        "Para frente.",
+        "Para trás.",
+        "Para os lados.",
+        "Para frente e diagonal.",
+        "Em zigue-zague."
       ]
     },
     {
       "image": "https://media.giphy.com/media/U5gEoVRt05ZgQ/giphy.gif",
       "title": "Qual o objetivo do jogo de xadrez?",
       "description": "Agora se alonga",
-      "answer": 5,
+      "answer": 4,
       "alternatives": [
-         {"text": "Capturar todas as peças!", "isCorrect": "f"},
-         {"text": "Afogar o rei adversário.", "isCorrect": "f"},
-         {"text": "Sofrer xeque-mate.", "isCorrect": "f"},
-         {"text": "Dar xeques infinitos.", "isCorrect": "f"},
-         {"text": "Aplicar xeque-mate ao rei adversário.", "isCorrect": "t"}
+         "Capturar todas as peças!",
+         "Afogar o rei adversário.",
+         "Sofrer xeque-mate.",
+         "Dar xeques infinitos.",
+         "Aplicar xeque-mate ao rei adversário."
       ]
     },
     {
       "image": "https://media.giphy.com/media/kBhgPVLVQzpXa/giphy.gif",
       "title": "A modalidade que consiste em colocar um jogador contra dezenas de outros jogadores chama-se:",
       "description": "Foi dada a largada!",
-      "answer": 5,
+      "answer": 4,
       "alternatives": [
-         {"text": "Múltiplas.", "isCorrect": "f"},
-         {"text": "Imortal.", "isCorrect": "f"},
-         {"text": "Rei da colina", "isCorrect": "f"},
-         {"text": "Sobrevivência.", "isCorrect": "f"},
-         {"text": "Simultânea.", "isCorrect": "t"}
+         "Múltiplas.",
+         "Imortal.",
+         "Rei da colina",
+         "Sobrevivência.",
+         "Simultânea."
       ]
     },
     {
       "image": "https://media.giphy.com/media/wnCR4WF5WpEZy/giphy.gif",
       "title": "Como é chamada a oferta de um peão em troca de alguma vantagem?",
       "description": "Hmmmm...",
-      "answer": 5,
+      "answer": 3,
       "alternatives": [
-         {"text": "Sacrifício.", "isCorrect": "f"},
-         {"text": "Erro.", "isCorrect": "f"},
-         {"text": "Coragem", "isCorrect": "f"},
-         {"text": "Gambito.", "isCorrect": "t"},
-         {"text": "Troca de peças.", "isCorrect": "f"}
+         "Sacrifício.",
+         "Erro.",
+         "Coragem",
+         "Gambito.",
+         "Troca de peças."
       ]
     },
     {
       "image": "https://media1.tenor.com/images/1ef7fae1c647ce5239135a1c6b1f6073/tenor.gif",
       "title": "Qual das vantagens a seguir se obtém ao trocar uma peça de maior valor por uma de menor valor?",
       "description": "Vantagens e vantagens",
-      "answer": 5,
+      "answer": 0,
       "alternatives": [
-         {"text": "Vantagem material.", "isCorrect": "t"},
-         {"text": "Vantagem numérica.", "isCorrect": "f"},
-         {"text": "Vantagem geométrica.", "isCorrect": "f"},
-         {"text": "Vantagem espacial ou carlsen.", "isCorrect": "f"},
-         {"text": "Vantagem de volume.", "isCorrect": "f"}
+         "Vantagem material.",
+         "Vantagem numérica.",
+         "Vantagem geométrica.",
+         "Vantagem espacial ou carlsen.",
+         "Vantagem de volume."
       ]
     },
     {
       "image": "https://media.giphy.com/media/l3q2XnJo1OVj2pgmQ/giphy.gif",
       "title": "Dado os lances, determine o nome da defesa jogada pelas negras: 1. e4 c6; 2. d4 e5",
       "description": "Prepare-se",
-      "answer": 5,
+      "answer": 2,
       "alternatives": [
-         {"text": "Peão do rei.", "isCorrect": "f"},
-         {"text": "Gambito da dama.", "isCorrect": "f"},
-         {"text": "Defesa caro-kann.", "isCorrect": "t"},
-         {"text": "Defesa holandesa, variante muro de pedra.", "isCorrect": "f"},
-         {"text": "Defesa siciliana.", "isCorrect": "f"}
+         "Peão do rei.",
+         "Gambito da dama.",
+         "Defesa caro-kann.",
+         "Defesa holandesa, variante muro de pedra.",
+         "Defesa siciliana."
       ]
     },
     {
       "image": "https://media.giphy.com/media/OGuhcYWfmXgHK/giphy.gif",
       "title": "Qual é o nome do movimento que permite mover duas peças numa só vez?",
       "description": "Prepare-se",
-      "answer": 5,
+      "answer": 4,
       "alternatives": [
-         {"text": "Duplo.", "isCorrect": "f"},
-         {"text": "Garfo.", "isCorrect": "f"},
-         {"text": "Movimento em L.", "isCorrect": "f"},
-         {"text": "Roger.", "isCorrect": "f"},
-         {"text": "Roque.", "isCorrect": "t"}
+         "Duplo.",
+         "Garfo.",
+         "Movimento em L.",
+         "Roger.",
+         "Roque."
       ]
     },
     {
       "image": "https://media.giphy.com/media/WRQBXSCnEFJIuxktnw/giphy.gif",
       "title": "Um dos clássicos da literatura enxadrística: Pense Como Um Grande Mestre, de Alexander Kotov, apresentou uma técnica de calcular os movimentos e criar combinações de maneira eficiente que ficou conhecida como:",
       "description": "Prepare-se",
-      "answer": 5,
+      "answer": 4,
       "alternatives": [
-         {"text": "Análise combinatória.", "isCorrect": "f"},
-         {"text": "Arranjo lógico.", "isCorrect": "f"},
-         {"text": "Combinação sobre vantagem.", "isCorrect": "f"},
-         {"text": "Tentativa e erro.", "isCorrect": "f"},
-         {"text": "Lances candidatos.", "isCorrect": "t"}
+         "Análise combinatória.",
+         "Arranjo lógico.",
+         "Combinação sobre vantagem.",
+         "Tentativa e erro.",
+         "Lances candidatos."
       ]
     },
     {
       "image": "https://media1.tenor.com/images/51facaaaa68ea92f9f79bb09752e7372/tenor.gif?itemid=20097608",
       "title": "Respectivamente, quanto vale o bispo, dama, peão, cavalo e torre?",
       "description": "Prepare-se",
-      "answer": 5,
+      "answer": 1,
       "alternatives": [
-         {"text": "3, 9, 0, 3, 5.", "isCorrect": "f"},
-         {"text": "3, 9, 1, 3, 5.", "isCorrect": "t"},
-         {"text": "3, 7, 3, 5, 3.", "isCorrect": "f"},
-         {"text": "3, 3, 5, 5, 9.", "isCorrect": "f"},
-         {"text": "3, 10, 1, 3, 5.", "isCorrect": "f"}
+         "3, 9, 0, 3, 5.",
+         "3, 9, 1, 3, 5.",
+         "3, 7, 3, 5, 3.",
+         "3, 3, 5, 5, 9.",
+         "t 10, 1, 3, 5."
       ]
     },
     {
       "image": "https://media.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif",
       "title": "No jogo de xadrez, algumas jogadas feitas por computadores, dado ao seu poder de processamento, pode não ser tão claras para um jogador iniciante e intermediário, às vezes até para jogadores avançados, pois",
       "description": "Prepare-se",
-      "answer": 5,
+      "answer": 4,
       "alternatives": [
-         {"text": "Dada a sequência, o adversário fará um erro grave.", "isCorrect": "f"},
-         {"text": "De imediato se ganha uma vantagem.", "isCorrect": "f"},
-         {"text": "Dará alguns xeques.", "isCorrect": "f"},
-         {"text": "Sempre, levará xeque-mate em poucos lances.", "isCorrect": "f"},
-         {"text": "Há uma combinação que levará a alguma vantagem, mesmo que a longo prazo.", "isCorrect": "t"}
+         "Dada a sequência, o adversário fará um erro grave.",
+         "De imediato se ganha uma vantagem.",
+         "Dará alguns xeques.",
+         "Sempre, levará xeque-mate em poucos lances.",
+         "Há uma combinação que levará a alguma vantagem, mesmo que a longo prazo."
       ]
     }
   ],
