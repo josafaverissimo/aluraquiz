@@ -8,6 +8,8 @@ import QuizLogo from '../src/components/QuizLogo';
 import Widget from '../src/components/Widget';
 import QuizButton from '../src/components/QuizButton';
 
+import HorseSpinner from '../src/components/HorseSpinner';
+
 function ResultWidget({ results }) {
   return (
     <Widget>
@@ -39,6 +41,15 @@ function ResultWidget({ results }) {
 }
 
 function LoadingWidget() {
+  const message = 'Que comece os jogos!';
+  const [messageColor, setMessageColor] = React.useState('#1c1814');
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setMessageColor(true);
+    }, 3 * 1000);
+  }, []);
+
   return (
     <Widget>
       <Widget.Header>
@@ -46,7 +57,14 @@ function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        <p style={{
+          textAlign: 'center',
+          color: messageColor,
+        }}
+        >
+          {message}
+        </p>
+        <HorseSpinner />
       </Widget.Content>
     </Widget>
   );
@@ -176,7 +194,7 @@ export default function QuizPage() {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 3700);
   }, []);
 
   function handleQuizSubmit() {
