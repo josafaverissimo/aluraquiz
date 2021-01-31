@@ -1,12 +1,19 @@
 import React from 'react';
-import QuizCard from '../QuizCard';
+import Widget from '../Widget';
+import Link from '../Link';
 
 export default function QuizzesCards({ quizzes }) {
-  return quizzes.map((quiz) => (
-    <QuizCard key={quiz.slug}>
-      <QuizCard.QuizUrl>
-        <a href={quiz.url}>{quiz.slug}</a>
-      </QuizCard.QuizUrl>
-    </QuizCard>
-  ));
+  return quizzes.map((quiz) => {
+    const [projectName, githubUser] = quiz
+      .replace(/\//g, '')
+      .replace('https:', '')
+      .replace('.vercel.app', '')
+      .split('.');
+
+    return (
+      <Widget.Topic as={Link} key={`${githubUser}${projectName}`} href={`quiz/${projectName}___${githubUser}`}>
+        {`${githubUser}/${projectName}`}
+      </Widget.Topic>
+    );
+  });
 }

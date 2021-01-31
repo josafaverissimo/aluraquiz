@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import db from '../db.json';
+import db from '../../db.json';
 
-import QuizBackground from '../src/components/QuizBackground';
-import QuizContainer from '../src/components/QuizContainer';
-import QuizLogo from '../src/components/QuizLogo';
-import Widget from '../src/components/Widget';
-import QuizButton from '../src/components/QuizButton';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizContainer from '../../src/components/QuizContainer';
+import QuizLogo from '../../src/components/QuizLogo';
+import Widget from '../../src/components/Widget';
+import QuizButton from '../../src/components/QuizButton';
 
-import HorseSpinner from '../src/components/HorseSpinner';
-import GitHubCorner from '../src/components/GitHubCorner';
+import HorseSpinner from '../../src/components/HorseSpinner';
+import GitHubCorner from '../../src/components/GitHubCorner';
 
 function ResultWidget({ results }) {
   return (
