@@ -201,7 +201,7 @@ export default function QuizPage({ questions, bg, Loading }) {
 
   React.useEffect(() => {
     setTimeout(() => {
-      // setScreenState(screenStates.QUIZ);
+      setScreenState(screenStates.QUIZ);
     }, 3700);
   }, []);
 
