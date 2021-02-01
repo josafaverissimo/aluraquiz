@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
 import QuizBackground from '../../components/QuizBackground';
@@ -12,7 +13,13 @@ import GitHubCorner from '../../components/GitHubCorner';
 
 import BackLinkArrow from '../../components/BackLinkArrow';
 
-function ResultWidget({ results }) {
+function ResultWidget({ results, questions }) {
+  const userName = useRouter().query.name;
+  const questionsCorrect = results.filter((x) => x.isCorrect).length;
+  const partialMessage = questionsCorrect > 5
+    ? `Parabéns ${userName}`
+    : `Que pena ${userName}`;
+
   return (
     <Widget>
       <Widget.Header>
@@ -21,21 +28,31 @@ function ResultWidget({ results }) {
 
       <Widget.Content>
         <p>
-          Você acertou
+          {partialMessage}
+          , você acertou
           {' '}
-          {results.filter((x) => x).length}
+          {questionsCorrect}
           {' '}
           perguntas
         </p>
 
         <ul>
-          {results.map((result, index) => (
-            <li key={`result__${result}`}>
-              {
-                `#${(index + 1).toString().padStart(2, '0')} Resultado: ${result ? 'acertou' : 'errou'}`
-              }
-            </li>
-          ))}
+          {results.map((result, index) => {
+            const answerKey = `answer__${index}`;
+            return (
+              <li key={`result__${result}`}>
+                <p>{`${(index + 1).toString().padStart(2, '0')}. ${questions[index].title}`}</p>
+                <Widget.Topic
+                  as="p"
+                  key={answerKey}
+                  isCorrect={result.isCorrect}
+                  isWrong={!result.isCorrect}
+                >
+                  {questions[index].alternatives[result.alternative]}
+                </Widget.Topic>
+              </li>
+            );
+          })}
         </ul>
       </Widget.Content>
     </Widget>
@@ -121,7 +138,7 @@ function QuestionWidget({
 
           setIsQuestionSubmited(true);
 
-          addResult(isCorrect);
+          addResult({ isCorrect, alternative: selectedAlternativeIndex });
 
           setTimeout(() => {
             setAlternativeCorrect('');
@@ -160,7 +177,7 @@ function QuestionWidget({
             );
           })}
 
-          <QuizButton disabled={!hasAlternativeSelected}>
+          <QuizButton disabled={!hasAlternativeSelected || isQuestionSubmited}>
             Confimar
           </QuizButton>
           {isCorrect && isQuestionSubmited && (
@@ -188,7 +205,9 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage({ questions, bg, Loading }) {
+export default function QuizPage({
+  questions, bg, Loading, userName,
+}) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [results, setResults] = React.useState([]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
@@ -235,10 +254,11 @@ export default function QuizPage({ questions, bg, Loading }) {
 
         {screenState === screenStates.LOADING && <LoadingWidget CustomLoading={Loading} />}
 
-        {screenState === screenStates.RESULT && <ResultWidget results={results} />}
+        {screenState === screenStates.RESULT
+        && <ResultWidget results={results} userName={userName} questions={questions} />}
       </QuizContainer>
 
-      <GitHubCorner projectUrl="https://github.com/josafaverissimo" />
+      <GitHubCorner projectUrl="https://github.com/josafaverissimo/aluraquiz" />
     </QuizBackground>
   );
 }

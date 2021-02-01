@@ -51,7 +51,7 @@ export default function Home() {
             <form onSubmit={function (e) {
               e.preventDefault();
 
-              router.push(`/quiz?nome=${name}`);
+              router.push(`/quiz?name=${name}`);
             }}
             >
               <QuizInput
