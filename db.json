@@ -6,8 +6,8 @@
     {
       "image": "https://media.giphy.com/media/RBRCJhp3cnpC0/giphy.gif",
       "title": "Como o peão se movimenta?",
-      "description": "Essa é pra aquecer",
-      "answer": 0,
+      "descriptin": "Essa é pra aquecer",
+      "answer": 3,
       "alternatives": [
         "Para frente.",
         "Para trás.",
