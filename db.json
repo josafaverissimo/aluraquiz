@@ -135,7 +135,8 @@
     }
   ],
   "external": [
-    "https://aluraquiz-css.omariosouto.vercel.app/",
+    "https://gamequiz.pesdesigner.vercel.app/",
+    "https://aluraquiz-base.julio-pereira.vercel.app/",
     "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
   ],
   "theme": {
@@ -143,7 +144,7 @@
       "primary": "#b58863",
       "secondary": "#f0d9b5",
       "mainBg": "#1C1814",
-      "contrastText": "#FFFFFF",
+      "contrastText": "#FFF",
       "wrong": "#FF5722",
       "success": "#4CAF50"
     },

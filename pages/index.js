@@ -83,7 +83,7 @@ export default function Home() {
 
             <p>Dá uma olhada nesses quizes incríveis que o pessoal da Imersão React 2.0 fez:</p>
 
-            <QuizzesCards quizzes={db.external} />
+            <QuizzesCards quizzes={db.external} active={name !== ''} />
           </Widget.Content>
         </Widget>
 

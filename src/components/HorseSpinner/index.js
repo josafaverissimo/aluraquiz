@@ -15,7 +15,7 @@ const StyledSvg = styled.div`
   path {
     fill: transparent;
     stroke-width: 5;
-    stroke: ${({ theme }) => `${theme.colors.primary}`};
+    stroke: ${({ theme }) => `${theme.colors.secondary}`};
 
     stroke-dasharray: 975;
     stroke-dashoffset: 0;
@@ -35,7 +35,7 @@ const StyledSvg = styled.div`
     }
     100% {
       stroke-dashoffset: 1950;
-      fill: ${({ theme }) => `${theme.colors.secondary}`};
+      fill: ${({ theme }) => `${theme.colors.primary}`};
     }
   }
 `;

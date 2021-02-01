@@ -7,7 +7,7 @@ import QuizLogo from '../../components/QuizLogo';
 import Widget from '../../components/Widget';
 import QuizButton from '../../components/QuizButton';
 
-import HorseSpinner from '../../components/HorseSpinner';
+import DefaultSpinner from '../../components/DefaultSpinner';
 import GitHubCorner from '../../components/GitHubCorner';
 
 import BackLinkArrow from '../../components/BackLinkArrow';
@@ -16,7 +16,7 @@ function ResultWidget({ results }) {
   return (
     <Widget>
       <Widget.Header>
-        Carregando...
+        Tela de resultado
       </Widget.Header>
 
       <Widget.Content>
@@ -42,13 +42,17 @@ function ResultWidget({ results }) {
   );
 }
 
-function LoadingWidget() {
+function LoadingWidget({ CustomLoading }) {
+  if (CustomLoading) {
+    return <CustomLoading />;
+  }
+
   const message = 'Que comece os jogos!';
-  const [messageColor, setMessageColor] = React.useState('#1c1814');
+  const [messageVisibility, setMessageVisibility] = React.useState('collapse');
 
   React.useEffect(() => {
     setTimeout(() => {
-      setMessageColor(true);
+      setMessageVisibility('visible');
     }, 3 * 1000);
   }, []);
 
@@ -61,12 +65,12 @@ function LoadingWidget() {
       <Widget.Content>
         <p style={{
           textAlign: 'center',
-          color: messageColor,
+          visibility: messageVisibility,
         }}
         >
           {message}
         </p>
-        <HorseSpinner />
+        <DefaultSpinner />
       </Widget.Content>
     </Widget>
   );
@@ -184,12 +188,12 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage({ externalQuestions, externalBg }) {
+export default function QuizPage({ questions, bg, Loading }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const [results, setResults] = React.useState([]);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
-  const question = externalQuestions[currentQuestion];
-  const questionsLength = externalQuestions.length;
+  const question = questions[currentQuestion];
+  const questionsLength = questions.length;
 
   function addResult(result) {
     setResults([...results, result]);
@@ -197,7 +201,7 @@ export default function QuizPage({ externalQuestions, externalBg }) {
 
   React.useEffect(() => {
     setTimeout(() => {
-      setScreenState(screenStates.QUIZ);
+      // setScreenState(screenStates.QUIZ);
     }, 3700);
   }, []);
 
@@ -211,7 +215,7 @@ export default function QuizPage({ externalQuestions, externalBg }) {
   }
 
   return (
-    <QuizBackground backgroundImage={externalBg}>
+    <QuizBackground backgroundImage={bg}>
       <QuizContainer>
         <QuizLogo />
 
@@ -229,7 +233,7 @@ export default function QuizPage({ externalQuestions, externalBg }) {
         />
         )}
 
-        {screenState === screenStates.LOADING && <LoadingWidget />}
+        {screenState === screenStates.LOADING && <LoadingWidget CustomLoading={Loading} />}
 
         {screenState === screenStates.RESULT && <ResultWidget results={results} />}
       </QuizContainer>

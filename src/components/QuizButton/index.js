@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 const QuizButton = styled.button`
-  height: 36px;
-  width: 283px;
-  left: 0px;
-  top: 0px;
+  height: 2.25rem;
+  width: 100%;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: #1c1814;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.contrastText};
 
   border: none;
 `;
